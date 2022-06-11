@@ -3,10 +3,9 @@ from PIL import Image
 
 count = 0
 name = input('введите конечное имя файлов ')
-try:
-    while 1:
-        count += 1
-        with Image.open(f'images/img_{count}.png') as im:
+for count in range(50):
+    try:
+        with Image.open(f'images/theory_{count}.png') as im:
             im = im.convert('RGBA')
             data = np.array(im)
             rgb = data[:, :, :3]
@@ -19,7 +18,7 @@ try:
             new_im = Image.fromarray(data)
             new_im.save(f'new_images/{name}_{count}.png')
 
-except:
-    pass
+    except:
+        pass
 
 
